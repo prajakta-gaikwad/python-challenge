@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Aug 20 22:10:57 2018
+Analyzing the financial records of a company
 
-@author: kambl
 """
 
-#Dependencies
+#import Dependencies
 import os
 import csv
 
@@ -22,6 +21,7 @@ with open (pyBank_path, newline='') as csvfile:
     #skipping the header 
     header = next(csv_reader)
     
+    #setting the variables
     total_months = 0
     net_profit_loss = 0
     averages = []
@@ -31,25 +31,29 @@ with open (pyBank_path, newline='') as csvfile:
     
     
     for i,row in enumerate(csv_reader):
+        # Counting total number of months included in the dataset
         total_months += 1
+        # total net amount of profit/loss over the entire period
         net_profit_loss += int(row[1])
-        
         
         if i==0:
             current = int(row[1])
         else:
+            #calculating average change between months over the entire period
             next_number = int(row[1])
             change = next_number - current
             sumofchanges += change
             averages.append(change)
-            current = int(row[1])        
+            current = int(row[1])
+            #getting the greatest increase and decrease in profits/losses
             if change > greatest_increase:
                 greatest_increase = change
                 increase_date = row[0]
             if change < greatest_decrease:
                 greatest_decrease = change
                 decrease_date = row[0]
- 
+
+#Exporting a text file with the results
 with open (output_path, 'w') as csvw_file:
     csvw_file.write("Financial Analysis\n")
     csvw_file.write("----------------------------------------------------\n")
@@ -59,7 +63,7 @@ with open (output_path, 'w') as csvw_file:
     csvw_file.write(f'Greatest Increase in Profits: {increase_date} (${greatest_increase})\n')
     csvw_file.write(f'Greatest Decrease in Losses: {decrease_date} (${greatest_decrease})\n')
      
-
+#printing the analysis to the terminal
 print("")
 print("Financial Analysis")
 print("----------------------------------------------------")
