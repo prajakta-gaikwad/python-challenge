@@ -1,5 +1,5 @@
 """
-Analyzing the financial records of a company
+Analyzing votes
 
 """
 #import Dependencies
@@ -49,8 +49,9 @@ with open (output_path, 'w') as csvw_file:
     print(f'Total Votes: {total_votes}')
     print("----------------------------------------------")
     
-    #outcome of counter function is a dictionary, calculating percentages 
+    #outcome of counter function is a dictionary
     #formatting the outcome in desired format
+    #calculating percentages 
     for key, value in poll_data.items():
         print(f'{key}: {round(((value/total_votes)*100),3)}% ({value})')
         csvw_file.write(f'{key}: {round(((value/total_votes)*100),3)}% ({value})\n')
