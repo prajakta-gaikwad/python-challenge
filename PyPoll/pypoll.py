@@ -8,7 +8,7 @@ import csv
 
 #path to the csv file
 pyPoll_path = os.path.join('..', 'Resources', 'election_data.csv')
-output_path = os.path.join('..', 'Resources', 'pypollresults.csv')
+output_path = os.path.join('..', 'Resources', 'pypollresults.txt')
 
 #opening the csv file with built-in open function
 #Using with ..as to lock the file resource    
@@ -36,13 +36,13 @@ with open (pyPoll_path, 'r') as csvfile:
     poll_data = Counter(candidates)      
 
 #Exporting a text file with the results and printing the analysis to the terminal
-with open (output_path, 'w') as csvw_file:
+with open (output_path, 'w') as txtw_file:
     #csvwriter = csv.writer(csvw_file)
     #csvwriter.writerow("Election Results")
-    csvw_file.write("Election Results\n")
-    csvw_file.write("----------------------------------------------\n")
-    csvw_file.write(f'Total Votes: {total_votes}\n')
-    csvw_file.write("----------------------------------------------\n")     
+    txtw_file.write("Election Results\n")
+    txtw_file.write("----------------------------------------------\n")
+    txtw_file.write(f'Total Votes: {total_votes}\n')
+    txtw_file.write("----------------------------------------------\n")     
     print("")
     print("Election Results")
     print("----------------------------------------------")
@@ -54,7 +54,7 @@ with open (output_path, 'w') as csvw_file:
     #calculating percentages 
     for key, value in poll_data.items():
         print(f'{key}: {round(((value/total_votes)*100),3)}% ({value})')
-        csvw_file.write(f'{key}: {round(((value/total_votes)*100),3)}% ({value})\n')
+        txtw_file.write(f'{key}: {round(((value/total_votes)*100),3)}% ({value})\n')
         #finding the winner based on popular vote
         if value > max_votes:
             max_votes = value
@@ -62,6 +62,6 @@ with open (output_path, 'w') as csvw_file:
     print("----------------------------------------------")  
     print(f'Winner: {winner}')
     print("----------------------------------------------")  
-    csvw_file.write("----------------------------------------------\n")  
-    csvw_file.write(f'Winner: {winner}\n')
-    csvw_file.write("----------------------------------------------\n")  
+    txtw_file.write("----------------------------------------------\n")  
+    txtw_file.write(f'Winner: {winner}\n')
+    txtw_file.write("----------------------------------------------\n")  

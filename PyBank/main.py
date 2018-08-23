@@ -10,7 +10,7 @@ import csv
 
 #path to the csv file
 pyBank_path = os.path.join ('..', 'Resources', 'budget_data.csv')
-output_path = os.path.join ('..','Resources', 'pybankresults.csv')
+output_path = os.path.join ('..','Resources', 'pybankresults.txt')
 
 #opening the csv file with built-in open function
 #Using with ..as to lock the file resource    
@@ -54,14 +54,14 @@ with open (pyBank_path, newline='') as csvfile:
                 decrease_date = row[0]
 
 #Exporting a text file with the results
-with open (output_path, 'w') as csvw_file:
-    csvw_file.write("Financial Analysis\n")
-    csvw_file.write("----------------------------------------------------\n")
-    csvw_file.write(f'Total Months: {total_months}\n')
-    csvw_file.write(f'Total: ${net_profit_loss}\n')
-    csvw_file.write(f'Average Change: ${round(sumofchanges/len(averages),2)}\n') 
-    csvw_file.write(f'Greatest Increase in Profits: {increase_date} (${greatest_increase})\n')
-    csvw_file.write(f'Greatest Decrease in Losses: {decrease_date} (${greatest_decrease})\n')
+with open (output_path, 'w') as txtw_file:
+    txtw_file.write("Financial Analysis\n")
+    txtw_file.write("----------------------------------------------------\n")
+    txtw_file.write(f'Total Months: {total_months}\n')
+    txtw_file.write(f'Total: ${net_profit_loss}\n')
+    txtw_file.write(f'Average Change: ${round(sumofchanges/len(averages),2)}\n') 
+    txtw_file.write(f'Greatest Increase in Profits: {increase_date} (${greatest_increase})\n')
+    txtw_file.write(f'Greatest Decrease in Losses: {decrease_date} (${greatest_decrease})\n')
      
 #printing the analysis to the terminal
 print("")
