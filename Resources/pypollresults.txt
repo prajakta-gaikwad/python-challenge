@@ -9,3 +9,24 @@ O'Tooley: 3.0% (105630)
 ----------------------------------------------
 Winner: Khan
 ----------------------------------------------
+Number of voters in each county:
+ 
+Marsh:64.36% (2265957)
+Queen:19.8% (697203)
+Bamoo:9.9% (348658)
+Trandee:2.97% (104617)
+Raffah:2.97% (104566)
+----------------------------------------------
+County with greatest number of voters: Marsh
+----------------------------------------------
+Number of voters voted for Khan in each county:
+
+Marsh: 62.98% (1427142)
+Queen: 63.04% (439494)
+Trandee: 63.03% (65939)
+Raffah: 62.95% (65822)
+Bamoo: 63.05% (219834)
+----------------------------------------------
+Khan got his maximum votes from: Marsh county
+Almost 63% voters from each county voted for Khan
+----------------------------------------------
